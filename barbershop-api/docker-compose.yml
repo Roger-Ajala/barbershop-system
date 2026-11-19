@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  database:
+    image: bitnami/postgresql:latest
+    container_name: barbershop_db
+    restart: always
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=barbershop
+    ports:
+      - "5432:5432"
+    volumes:
+      - barbershop_pg_data:/bitnami/postgresql
+
+volumes:
+  barbershop_pg_data:
